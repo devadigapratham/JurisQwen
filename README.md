@@ -124,7 +124,6 @@ The model will respond with:
 - Hardware: NVIDIA A100-40GB GPU
 - Training time: Approximately 3-5 hours
 - Cloud Provider: Modal
-- Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute)
 
 ## Citation
 If you use this model in your research, please cite:
@@ -134,7 +133,7 @@ If you use this model in your research, please cite:
   author = {[Prathamesh Devadiga]},
   title = {JurisQwen: Indian Legal Domain Fine-tuned Qwen2.5-7B Model},
   year = {2025},
-  url = {[link]}
+  url = {[https://github.com/devadigapratham/JurisQwen]}
 }
 ```
 
