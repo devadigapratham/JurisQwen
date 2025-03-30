@@ -1,0 +1,64 @@
+{
+  "app_name": "qwen-law-finetuning",
+  "model": {
+    "base_model_id": "Qwen/Qwen2.5-7B",
+    "max_seq_length": 4096,
+    "quantization": {
+      "load_in_4bit": true,
+      "attn_implementation": "flash_attention_2",
+      "dtype": "bfloat16"
+    }
+  },
+  "peft_config": {
+    "r": 32,
+    "target_modules": [
+      "q_proj", 
+      "k_proj", 
+      "v_proj", 
+      "o_proj",
+      "gate_proj", 
+      "up_proj", 
+      "down_proj"
+    ],
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "bias": "none",
+    "use_gradient_checkpointing": "unsloth"
+  },
+  "training": {
+    "dataset": "viber1/indian-law-dataset",
+    "output_dir": "/data/JurisQwen",
+    "checkpoint_dir": "/data/checkpoints",
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "optimizer": "adamw_8bit",
+    "learning_rate": 2e-4,
+    "weight_decay": 0.001,
+    "lr_scheduler_type": "cosine",
+    "warmup_ratio": 0.1,
+    "precision": {
+      "bf16": true,
+      "fp16": false,
+      "tf32": true
+    }
+  },
+  "inference": {
+    "max_new_tokens": 512
+  },
+  "compute": {
+    "gpu": "A100-40GB",
+    "training_timeout_hours": 5,
+    "inference_timeout_minutes": 10
+  },
+  "prompt_template": {
+    "user_prefix": "<|im_start|>user\n",
+    "user_suffix": "<|im_end|>",
+    "assistant_prefix": "<|im_start|>assistant\n",
+    "assistant_suffix": "<|im_end|>"
+  },
+  "volumes": {
+    "path": "/data",
+    "name": "finetune-volume"
+  }
+}
