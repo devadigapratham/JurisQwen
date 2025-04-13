@@ -6,11 +6,11 @@ JurisQwen is a specialized legal domain language model based on Qwen2.5-7B, fine
 ## Model Details
 
 ### Model Description
-- **Developed by:** [Your Name/Organization]
+- **Developed by:** Prathamesh Devadiga
 - **Base Model:** Qwen2.5-7B by Qwen
 - **Model Type:** Language Model with LoRA fine-tuning
 - **Language:** English with focus on Indian legal terminology
-- **License:** [Specify License - inherited from Qwen2.5 or your custom license]
+- **License:** Apache-2.0
 - **Finetuned from model:** Qwen/Qwen2.5-7B
 - **Framework:** PEFT 0.15.1 with Unsloth optimization
 
